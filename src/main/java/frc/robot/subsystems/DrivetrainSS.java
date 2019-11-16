@@ -7,7 +7,10 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
 
 /**
  * Add your docs here.
@@ -15,12 +18,43 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class DrivetrainSS extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+  public static WPI_TalonSRX leftMotor1;
+  public static WPI_TalonSRX leftMotor2;
+  public static WPI_TalonSRX rightMotor1;
+  public static WPI_TalonSRX rightMotor2;
 
-public void ArcadeDrive() {
+  public DrivetrainSS(){
+    //constructor
+    leftMotor1 = new WPI_TalonSRX(RobotMap.leftMotor1);
+    leftMotor2 = new WPI_TalonSRX(RobotMap.leftMotor2);
+    rightMotor1 = new WPI_TalonSRX(RobotMap.rightMotor1);
+    rightMotor2 = new WPI_TalonSRX(RobotMap.rightMotor2);
+  }
 
-}
+  public void ArcadeDrive() {  
+    
+  }
 
+  public void halt(){
+    leftMotor1.set(0);
+    leftMotor2.set(0);
+    rightMotor1.set(0);
+    rightMotor2.set(0);
+  }
 
+  public void forward(){
+    leftMotor1.set(1);
+    leftMotor2.set(1);
+    rightMotor1.set(1);
+    rightMotor2.set(1);
+  }
+
+  public void set_speed(double leftspeed, double rightspeed){
+    leftMotor1.set(leftspeed);
+    leftMotor2.set(leftspeed);
+    rightMotor1.set(rightspeed);
+    rightMotor2.set(rightspeed);
+  }
 
   @Override
   public void initDefaultCommand() {

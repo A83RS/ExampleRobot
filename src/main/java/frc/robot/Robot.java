@@ -7,7 +7,7 @@
 
 package frc.robot;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -28,13 +28,12 @@ import frc.robot.subsystems.DrivetrainSS;
 public class Robot extends TimedRobot {
   int x = 0;
 
-public static DrivetrainSS drivetrainSS;
-public static WPI_TalonSRX leftMotor1;
-public static WPI_TalonSRX leftMotor2;
-public static WPI_TalonSRX rightMotor1 ;
-public static WPI_TalonSRX rightMotor2 ;
+  public static DrivetrainSS drivetrainSS;
+  
+ 
+  
 
-  Command m_autonomousCommand;
+Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   /**
@@ -44,10 +43,6 @@ public static WPI_TalonSRX rightMotor2 ;
   @Override
   public void robotInit() {
     
-       leftMotor1 = new WPI_TalonSRX(RobotMap.leftMotor1);
-       leftMotor2 = new WPI_TalonSRX(RobotMap.leftMotor2);
-       rightMotor1 = new WPI_TalonSRX(RobotMap.rightMotor1);
-       rightMotor2 = new WPI_TalonSRX(RobotMap.rightMotor2);
 
        drivetrainSS = new DrivetrainSS();
 
